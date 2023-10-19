@@ -56,3 +56,5 @@ cmake .
 make -j${numCPU}
 make install
 popd
+
+# gstreamer
