@@ -7,6 +7,7 @@
 //==========================================================================
 
 #include "include/PedestrianPlugin.hpp"
+#include <gst/gst.h>
 
 
 namespace PedestrianPlugin
@@ -281,6 +282,9 @@ void PedestrianPlugin::writeResponse(int responseCode , QHttpEngine::Socket *soc
 int PedestrianPlugin::Main()
 {
 	PLOG(logINFO) << "Starting plugin.";
+	gst_init(nullptr, nullptr);
+	// Get and print GStreamer version using PLOG
+    PLOG(logINFO) << "GStreamer Version: " << gst_version_string();
 
 	uint msCount = 0;
 	while (_plugin->state != IvpPluginState_error)

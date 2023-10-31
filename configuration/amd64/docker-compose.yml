@@ -30,7 +30,8 @@ services:
     tty: true
 
   v2xhub:
-    image: usdotfhwaops/v2xhubamd:latest
+    image: v2x-gst-image
+    #image: usdotfhwaops/v2xhubamd:latest
     container_name: v2xhub
     network_mode: host
     restart: always
