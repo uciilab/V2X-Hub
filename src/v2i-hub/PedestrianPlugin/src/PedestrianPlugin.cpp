@@ -7,7 +7,7 @@
 //==========================================================================
 
 #include "include/PedestrianPlugin.hpp"
-#include <gst/gst.h>
+#include <gst/gst.h> // Include Gstreamer for onvif integration
 
 
 namespace PedestrianPlugin
@@ -282,6 +282,8 @@ void PedestrianPlugin::writeResponse(int responseCode , QHttpEngine::Socket *soc
 int PedestrianPlugin::Main()
 {
 	PLOG(logINFO) << "Starting plugin.";
+
+	// Initialize Gstreamer
 	gst_init(nullptr, nullptr);
 	// Get and print GStreamer version using PLOG
     PLOG(logINFO) << "GStreamer Version: " << gst_version_string();

@@ -30,7 +30,7 @@ services:
     tty: true
 
   v2xhub:
-    image: v2x-gst-image
+    image: v2x-hub-onvif-image # replaced with test image, built using docker build -t v2x-hub-onvif-image
     #image: usdotfhwaops/v2xhubamd:latest
     container_name: v2xhub
     network_mode: host

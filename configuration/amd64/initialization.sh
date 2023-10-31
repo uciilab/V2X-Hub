@@ -45,7 +45,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io 
 sudo apt -y install python3-pip
 sudo pip3 install docker-compose
-#sudo docker-compose pull
+sudo docker-compose pull
 sudo apt update -y && sudo apt upgrade -y
 sudo docker-compose up -d
 

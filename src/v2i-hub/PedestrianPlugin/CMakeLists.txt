@@ -30,19 +30,16 @@ include_directories(
 
 BuildTmxPlugin ()
 
-# Find the GStreamer package
-find_package(PkgConfig REQUIRED)
+# Adding gstreamer dependency
+find_package(PkgConfig REQUIRED) # gstreamer uses pkg-config utility to provide the right compiler and linker flags.
 pkg_check_modules(GSTREAMER REQUIRED gstreamer-1.0)
-
-message("CMAKE - GSTREAMER")
-
-# Include directories and link against GStreamer
 include_directories(${GSTREAMER_INCLUDE_DIRS})
 
 TARGET_INCLUDE_DIRECTORIES ( ${PROJECT_NAME} PUBLIC ${XercesC_INCLUDE_DIRS} ${NETSNMP_INCLUDE_DIRS} ${Qt5Core_INCLUDE_DIRS} ${Qt5Network_INCLUDE_DIRS})
 
-target_link_libraries(${PROJECT_NAME} PUBLIC tmxutils ${XercesC_LIBRARY} ${NETSNMP_LIBRARIES} ${QHttpEngine_LIBRARY} Qt5Widgets Qt5Core Qt5Network ssl crypto qhttpengine qserverPedestrian ${GSTREAMER_LIBRARIES})
-message("CMAKE - GSTREAMER DONE")
+# Updated below to link gstreamer as well
+TARGET_LINK_LIBRARIES( ${PROJECT_NAME} PUBLIC tmxutils ${XercesC_LIBRARY} ${NETSNMP_LIBRARIES} ${QHttpEngine_LIBRARY} Qt5Widgets Qt5Core Qt5Network ssl crypto qhttpengine qserverPedestrian ${GSTREAMER_LIBRARIES})
+
 
 link_directories(${CMAKE_PREFIX_PATH}/lib)
 
