@@ -286,7 +286,7 @@ int PedestrianPlugin::Main()
 	// Initialize Gstreamer
 	gst_init(nullptr, nullptr);
 	// Get and print GStreamer version using PLOG
-    PLOG(logINFO) << "GStreamer Version: " << gst_version_string();
+    	PLOG(logINFO) << "GStreamer Version: " << gst_version_string();
 
 	uint msCount = 0;
 	while (_plugin->state != IvpPluginState_error)
